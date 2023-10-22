@@ -1,5 +1,5 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Troxer Hub", "Midnight")
+local Window = Library.CreateLib("TroXer Hub", "Midnight")
 
 local TabIngridients = Window:NewTab("Ingridients Folder")
 local TabSection = TabIngridients:NewSection("Ingridients")
@@ -17,6 +17,40 @@ TabSection3:NewKeybind("Press F To Invsibile", "InvisibleInfo", Enum.KeyCode.F, 
 end)
 
 -- Teleports
+
+Section:NewDropdown("Teleports", "Teleporting To Island/Models", {"Main Island", "Moai Island", "Slapple Island"}, function(Option)
+    if Option == "Main Island" then
+     local PartTeleport = Instance.new("Part", workspace)
+     PartTeleport.Name = "MainIslandPart"
+     PartTeleport.CFrame = CFrame.new(0,0,200)
+     PartTeleport.Anchored = true
+     PartTeleport.CanCollide = false
+     PartTeleport.Transparency = 1
+
+     local Player = game.Players.LocalPlayer
+     Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame
+    elseif Option == "Moai Island" then
+     local PartTeleport = Instance.new("Part", workspace)
+     PartTeleport.Name = "MoaiIslandPart"
+     PartTeleport.CFrame = CFrame.new(200,0,0)
+     PartTeleport.Anchored = true
+     PartTeleport.CanCollide = false
+     PartTeleport.Transparency = 1
+
+     local Player = game.Players.LocalPlayer
+     Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame  
+    elseif Option == "Slapple Island" then
+     local PartTeleport = Instance.new("Part", workspace)
+     PartTeleport.Name = "SlappleIslandPart"
+     PartTeleport.CFrame = CFrame.new(-400,50,-15)
+     PartTeleport.Anchored = true
+     PartTeleport.CanCollide = false
+     PartTeleport.Transparency = 1
+
+     local Player = game.Players.LocalPlayer
+     Player.Character.HumanoidRootPart.CFrame = PartTeleport.CFrame
+    end
+end)
 
 TabSection2:NewButton("Moai Island", "Teleport To Moai Island", function()
     local PartTeleport = Instance.new("Part", workspace)
